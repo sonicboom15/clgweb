@@ -31,7 +31,7 @@ public class User{
 	private String email;
 	
 	@Column(name="State",nullable=false)
-	private String state=State.ACTIVE.getState();
+	private String state=State.Active.getState();
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "User_UserType",
@@ -72,7 +72,7 @@ public class User{
 	public Set<UserProfile> getUserProfiles(){
 		return userProfiles; 
 	}
-	public void setUserProfiles(Set<UserProfiles> userProfiles){
+	public void setUserProfiles(Set<UserProfile> userProfiles){
 		this.userProfiles=userProfiles;
 	}
 	@Override
