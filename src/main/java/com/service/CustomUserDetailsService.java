@@ -24,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		User user;
-		user = UserService.findbyuserName(userName);
+		user = userService.findbyuserName(userName);
 		System.out.println("User : "+user);
 		if(user==null){
 			System.out.println("User not found");
@@ -34,7 +34,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 					user.getState().equals("Active"), true , true , true , getGrantedAuthorities(user));
 	}
 	private List<GrantedAuthority> getGrantedAuthorities(User user){
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>;
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		for(UserProfile userProfile : user.getUserProfiles()){
 			System.out.println("UserProfile : "+userProfile);
 			authorities.add(new SimpleGrantedAuthority("ROLE_"+userProfile.getType()));
