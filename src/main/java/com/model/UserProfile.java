@@ -15,7 +15,7 @@ public class UserProfile {
 	private int id;
 
 	@Column(name = "Type", length = 15, unique = true, nullable = false)
-	private String type = UserProfileType.User.getUserProfileType();
+	private String type = UserProfileType.Student.getUserProfileType();
 
 	public int getId() {
 		return id;

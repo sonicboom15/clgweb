@@ -1,14 +1,19 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.model.UserProfile;
+import com.model.User;
 
 @Service("customeUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{
@@ -18,13 +23,14 @@ public class CustomUserDetailsService implements UserDetailsService{
 	
 	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-		User user = UserService.findbyusername(userName);
+		User user;
+		user = UserService.findbyuserName(userName);
 		System.out.println("User : "+user);
 		if(user==null){
 			System.out.println("User not found");
 			throw new UsernameNotFoundException("Username not found");
 		}
-			return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(),
+			return new org.springframework.security.core.userdetails.User(user.getuserName(),user.getPassword(),
 					user.getState().equals("Active"), true , true , true , getGrantedAuthorities(user));
 	}
 	private List<GrantedAuthority> getGrantedAuthorities(User user){
