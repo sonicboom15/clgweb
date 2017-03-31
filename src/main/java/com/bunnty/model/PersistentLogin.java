@@ -9,12 +9,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
  
+@SuppressWarnings("serial")
 @Entity
 @Table(name="PERSISTENT_LOGINS")
 public class PersistentLogin implements Serializable{
  
-	private static final long serialVersionUID = -3978707836370485690L;
-
 	@Id
     private String series;
  

@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
  
+@SuppressWarnings("serial")
 @Entity
 @Table(name="USER_PROFILE")
 public class UserProfile implements Serializable{
@@ -17,8 +18,6 @@ public class UserProfile implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -2154102234941586771L;
-
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id; 
  

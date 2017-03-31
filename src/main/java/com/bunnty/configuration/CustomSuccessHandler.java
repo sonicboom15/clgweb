@@ -44,11 +44,11 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
         }
  
         if (isDba(roles)) {
-            url = "/db";
+            url = "/list";
         } else if (isAdmin(roles)) {
-            url = "/admin";
+            url = "/list";
         } else if (isUser(roles)) {
-            url = "/home";
+            url = "/list";
         } else {
             url="/accessDenied";
         }

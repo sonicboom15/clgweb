@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.bunnty.model.UserProfile;
 
 @Repository("userProfileDao")
-public class UserProfileDaoImpl extends AbstractDao<Integer, UserProfile>implements UserProfileDao{
+public class UserProfileDaoImpl extends AbstractDao<Integer, UserProfile> implements UserProfileDao{
 
    public UserProfile findById(int id) {
        return getByKey(id);
