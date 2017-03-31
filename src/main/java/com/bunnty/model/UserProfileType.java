@@ -1,16 +1,20 @@
 package com.bunnty.model;
 
-public enum UserProfileType{
-	User("User"),
-	Student("Student"),
-	Admin("Admin"),
-	Staff("Staff");
-	
-	String userProfileType;
-	private UserProfileType(String userProfileType){
-		this.userProfileType=userProfileType;
-	}
-	public String getUserProfileType() {
-		return userProfileType;
-	}
+import java.io.Serializable;
+
+public enum UserProfileType implements Serializable{
+    USER("USER"),
+    DBA("DBA"),
+    ADMIN("ADMIN");
+     
+    String userProfileType;
+     
+    private UserProfileType(String userProfileType){
+        this.userProfileType = userProfileType;
+    }
+     
+    public String getUserProfileType(){
+        return userProfileType;
+    }
+     
 }
