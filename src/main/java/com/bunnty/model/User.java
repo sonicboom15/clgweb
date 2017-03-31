@@ -17,14 +17,10 @@ import javax.persistence.Table;
  
 import org.hibernate.validator.constraints.NotEmpty;
  
+@SuppressWarnings("serial")
 @Entity
 @Table(name="APP_USER")
 public class User implements Serializable{
- 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 9205857401338783848L;
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
@@ -145,12 +141,11 @@ public class User implements Serializable{
  
     /*
      * DO-NOT-INCLUDE passwords in toString function.
-     * It is done here just for convenience purpose.
      */
     @Override
     public String toString() {
-        return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password
-                + ", firstName=" + firstName + ", lastName=" + lastName
+        return "User [id=" + id + ", ssoId=" + ssoId + ","
+        		+ " firstName=" + firstName + ", lastName=" + lastName
                 + ", email=" + email + "]";
     }
  
