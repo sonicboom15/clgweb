@@ -189,7 +189,10 @@ public class AppController {
             return "redirect:/list";  
         }
     }
- 
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String adminPage(){
+    	return "admin";
+    }
     /**
      * This method handles logout requests.
      * Toggle the handlers if you are RememberMe functionality is useless in your app.
